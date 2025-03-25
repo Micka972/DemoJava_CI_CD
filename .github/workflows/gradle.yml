@@ -30,3 +30,12 @@ jobs:
         password: totonono
         source: "build/libs/demo-0.0.1-SNAPSHOT.jar"
         target: /home/mickael/
+        
+    - name: restart app in server
+      uses: appleboy/ssh-action@master
+      with: 
+        host: 188.245.157.167
+        username: root
+        password: totonono
+        command_timeout: 30m
+        script: sudo systemctl restart mickael.service
